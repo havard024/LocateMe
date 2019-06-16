@@ -9,8 +9,10 @@
 import Foundation
 import FirebaseFirestore
 import MapKit
+import CodableFirebase
 
 #warning("Consider using uid from firebase user using anonymous login")
+#warning("Figure out how to map firestore data to models to become more type safe")
 class UserManager {
     static let shared = UserManager()
     
@@ -19,7 +21,6 @@ class UserManager {
 
     init() {
         let db = Firestore.firestore()
-        Firestore.enableLogging(true)
         self.usersRef = db.collection("users")
         
         if let userID = UserDefaultsWrapper.userID {
@@ -30,9 +31,12 @@ class UserManager {
         }
     }
     
+    #warning("If users node is going to contain private data, might need to move public location to a different node")
     func updateLocation(_ coordinate: CLLocationCoordinate2D) {
         debugPrint("updateLocation", coordinate)
         let db = Firestore.firestore()
-        self.userRef.setData(["location": ["latitude": coordinate.latitude, "longitude": coordinate.longitude, "updatedAt": Timestamp(date: Date())]], merge: true)
+        let user = User(location: GeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude), id: userRef.documentID)
+        let data = try! FirebaseEncoder().encode(user)
+        self.userRef.setData(data as! [String : Any])
     }
 }

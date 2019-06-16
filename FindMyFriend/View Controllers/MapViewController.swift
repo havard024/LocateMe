@@ -30,10 +30,10 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        clearError()
         initLocationManager()
         initMapView()
         subscribeToData()
-        toggleError()
     }
     
     // MARK: - Helper Functions
@@ -43,7 +43,7 @@ class MapViewController: UIViewController {
         FirestoreAPI.shared.subscribeToCollection(.users) { error, userLocations in
             
             if let error = error {
-                self.toggleError(error)
+                self.toggleError(error: error)
                 return
             }
             
@@ -59,7 +59,7 @@ class MapViewController: UIViewController {
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
         } else {
-            #warning("Handle case where app does not have location access or location service is disabled")
+            toggleError(text: "Location service is disabled")
         }
     }
     
@@ -88,14 +88,18 @@ class MapViewController: UIViewController {
         }
     }
     
-    private func toggleError(_ error: Error? = nil) {
-        if let error = error {
-            errorLabel.isHidden = false
-            errorLabel.text = error.localizedDescription
-        } else {
-            errorLabel.isHidden = true
-            errorLabel.text = ""
-        }
+    private func toggleError(error: Error, visible: Bool = true) {
+        toggleError(text: error.localizedDescription, visible: visible)
+    }
+    
+    private func clearError() {
+        toggleError(text: "", visible: false)
+    }
+    
+    private func toggleError(text: String, visible: Bool = true) {
+        debugPrint("Toggle error: \(visible) \(text)")
+        errorLabel.isHidden = !visible
+        errorLabel.text = text
     }
 }
 
@@ -112,6 +116,22 @@ extension MapViewController: CLLocationManagerDelegate {
                 self.mapView.setRegion(region, animated: true)
                 self.isFirstTimeInHere = false
             }
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+            
+        case .notDetermined:
+            clearError()
+        case .restricted:
+            toggleError(text: "Location access is restricted on this device.")
+        case .denied:
+            toggleError(text: "Location access is disabled.")
+        case .authorizedAlways:
+            clearError()
+        case .authorizedWhenInUse:
+            clearError()
         }
     }
 }

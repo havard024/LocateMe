@@ -16,27 +16,21 @@ import CodableFirebase
 class UserManager {
     static let shared = UserManager()
     
-    private let usersRef: CollectionReference
-    private let userRef: DocumentReference
-
+    private let userID: String!
+    
     init() {
-        let db = Firestore.firestore()
-        self.usersRef = db.collection("users")
-        
-        if let userID = UserDefaultsWrapper.userID {
-            self.userRef = usersRef.document(userID)
-        } else {
-            self.userRef = usersRef.document()
-            UserDefaultsWrapper.userID = self.userRef.documentID
+        if UserDefaultsWrapper.userID == nil {
+            UserDefaultsWrapper.userID = FirestoreAPI.shared.getDocumentID("users")
         }
+        
+        self.userID = UserDefaultsWrapper.userID
     }
     
     #warning("If users node is going to contain private data, might need to move public location to a different node")
     func updateLocation(_ coordinate: CLLocationCoordinate2D) {
-        debugPrint("updateLocation", coordinate)
-        let db = Firestore.firestore()
-        let user = UserLocation(geoPoint: GeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude), id: userRef.documentID)
-        let data = try! FirebaseEncoder().encode(user)
-        self.userRef.setData(data as! [String : Any])
+        // debugPrint("updateLocation", coordinate)
+        let user = UserLocation(geoPoint: GeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude), id: userID)
+        #warning("Call can fail and we are not handling it. Should either handle it or document why we don't need to handle it.")
+        FirestoreAPI.shared.setUserData(user)
     }
 }

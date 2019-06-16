@@ -15,6 +15,7 @@ class FirestoreAPI {
     
     private let db: Firestore
     private let decoder = FirebaseDecoder()
+    private let encoder = FirebaseEncoder()
     
     let users: CollectionReference
     
@@ -43,6 +44,15 @@ class FirestoreAPI {
         let db = Firestore.firestore()
         self.users = db.collection("users")
         self.db = db
+    }
+    
+    func setUserData(_ userLocation: UserLocation) {
+        let data = try! self.encoder.encode(userLocation)
+        self.db.document("users/\(userLocation.id)").setData(data as! [String : Any])
+    }
+    
+    func getDocumentID(_ path: String) -> String {
+        return db.document(path).documentID
     }
     
     func subscribeToCollection(_ collection: Collection, completion: @escaping (FirestoreError?, [UserLocation]) -> Void) -> ListenerRegistration {

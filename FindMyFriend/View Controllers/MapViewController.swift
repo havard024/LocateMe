@@ -39,7 +39,6 @@ class MapViewController: UIViewController {
     // MARK: - Helper Functions
     
     private func subscribeToData() {
-        #warning("Should we keep a reference to the listener so that we can unregister for events at some point?")
         FirestoreAPI.shared.subscribeToCollection(.users) { error, userLocations in
             
             if let error = error {
@@ -110,7 +109,11 @@ extension MapViewController: CLLocationManagerDelegate {
         if let location = locations.last {
             let center = location.coordinate
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-            UserManager.shared.updateLocation(center)
+            if UserManager.shared.updateLocation(center) == false {
+                toggleError(text: "Failed to send location to server")
+            } else {
+                clearError()
+            }
             // Center map first time we get a location
             if isFirstTimeInHere {
                 self.mapView.setRegion(region, animated: true)
@@ -131,6 +134,8 @@ extension MapViewController: CLLocationManagerDelegate {
         case .authorizedAlways:
             clearError()
         case .authorizedWhenInUse:
+            clearError()
+        @unknown default:
             clearError()
         }
     }

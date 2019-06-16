@@ -12,7 +12,6 @@ import MapKit
 import CodableFirebase
 
 #warning("Consider using uid from firebase user using anonymous login")
-#warning("Figure out how to map firestore data to models to become more type safe")
 class UserManager {
     static let shared = UserManager()
     
@@ -27,10 +26,9 @@ class UserManager {
     }
     
     #warning("If users node is going to contain private data, might need to move public location to a different node")
-    func updateLocation(_ coordinate: CLLocationCoordinate2D) {
+    func updateLocation(_ coordinate: CLLocationCoordinate2D) -> Bool {
         // debugPrint("updateLocation", coordinate)
         let user = UserLocation(geoPoint: GeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude), id: userID)
-        #warning("Call can fail and we are not handling it. Should either handle it or document why we don't need to handle it.")
-        FirestoreAPI.shared.setUserData(user)
+        return FirestoreAPI.shared.setUserData(user)
     }
 }

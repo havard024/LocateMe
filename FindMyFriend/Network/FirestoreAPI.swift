@@ -46,15 +46,22 @@ class FirestoreAPI {
         self.db = db
     }
     
-    func setUserData(_ userLocation: UserLocation) {
-        let data = try! self.encoder.encode(userLocation)
-        self.db.document("users/\(userLocation.id)").setData(data as! [String : Any])
+    func setUserData(_ userLocation: UserLocation) -> Bool {
+        do {
+            let data = try self.encoder.encode(userLocation)
+            self.db.document("users/\(userLocation.id)").setData(data as! [String : Any])
+            return true
+        } catch {
+            debugPrint(error)
+            return false
+        }
     }
     
     func getDocumentID(_ path: String) -> String {
         return db.document(path).documentID
     }
     
+    @discardableResult
     func subscribeToCollection(_ collection: Collection, completion: @escaping (FirestoreError?, [UserLocation]) -> Void) -> ListenerRegistration {
         return db.collection(collection.rawValue).addSnapshotListener { querySnapshot, error in
             
@@ -70,8 +77,8 @@ class FirestoreAPI {
             
             do {
                 let userLocations = try documents.map { (doc: DocumentSnapshot) throws -> UserLocation in
-                    var docData = doc.data()
-                    docData?["id"] = doc.documentID
+                    var docData = doc.data()!
+                    docData["id"] = doc.documentID
                     return try self.decoder.decode(UserLocation.self, from: docData)
                 }
                 completion(nil, userLocations)

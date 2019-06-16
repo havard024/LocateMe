@@ -20,20 +20,41 @@ class MapViewController: UIViewController {
     private var annotationMap: [String: MKPointAnnotation] = [:]
     private var isFirstTimeInHere = true
     
+    private enum ErrorLabel: CaseIterable {
+        case locationManagerErrorLabel
+        case userLocationErrorLabel
+        case generalErrorLabel
+    }
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var errorLabel: UILabel!
+    
+    @IBOutlet weak var errorLabelView: UIStackView!
+    @IBOutlet weak var errorView: UIView!
+    @IBOutlet weak var locationManagerErrorTitleLabel: UILabel!
+    @IBOutlet weak var locationManagerErrorDescriptionLabel: UILabel!
+    @IBOutlet weak var userLocationErrorTitleLabel: UILabel!
+    @IBOutlet weak var userLocationErrorDescriptionLabel: UILabel!
+    @IBOutlet weak var genericErrorTitleLabel: UILabel!
+    @IBOutlet weak var genericErrorDescriptionLabel: UILabel!
     
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        clearError()
+        clearErrorLabels()
+        
         initLocationManager()
         initMapView()
         subscribeToData()
+        
+        /*
+         self.setErrorLabel(label: .generalErrorLabel, title: "General Error label", description: "Some kinda description which should be a decent length to test it properly")
+         self.setErrorLabel(label: .locationManagerErrorLabel, title: "LocationManager Error label", description: "Some kinda description which should be a decent length to test it properly")
+         self.setErrorLabel(label: .userLocationErrorLabel, title: "UserLocation Error label", description: "Some kinda description which should be a decent length to test it properly")
+            */
     }
     
     // MARK: - Helper Functions
@@ -42,7 +63,7 @@ class MapViewController: UIViewController {
         FirestoreAPI.shared.subscribeToCollection(.users) { error, userLocations in
             
             if let error = error {
-                self.toggleError(error: error)
+                self.setErrorLabel(label: .generalErrorLabel, title: "Failed to fetch locations from server", description: error.localizedDescription ?? "No error description provided")
                 return
             }
             
@@ -58,7 +79,7 @@ class MapViewController: UIViewController {
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
         } else {
-            toggleError(text: "Location service is disabled")
+            setErrorLabel(label: .locationManagerErrorLabel, title: "Location service is disabled.", description: "Please turn on location service in settings")
         }
     }
     
@@ -87,18 +108,56 @@ class MapViewController: UIViewController {
         }
     }
     
-    private func toggleError(error: Error, visible: Bool = true) {
-        toggleError(text: error.localizedDescription, visible: visible)
+    private func setErrorLabel(label: ErrorLabel, title: String? = "", description: String? = "") {
+        let titleLabel: UILabel!
+        let descriptionLabel: UILabel!
+        
+        switch label {
+        case .locationManagerErrorLabel:
+            titleLabel = locationManagerErrorTitleLabel
+            descriptionLabel = locationManagerErrorDescriptionLabel
+        case .userLocationErrorLabel:
+            titleLabel = userLocationErrorTitleLabel
+            descriptionLabel = userLocationErrorDescriptionLabel
+        case .generalErrorLabel:
+            titleLabel = genericErrorTitleLabel
+            descriptionLabel = genericErrorDescriptionLabel
+        }
+        
+        debugPrint(titleLabel, descriptionLabel)
+        
+        titleLabel.text = title
+        titleLabel.isHidden = title == nil
+        
+        descriptionLabel.text = description
+        descriptionLabel.isHidden = description == nil
+        
+        toggleErrorLabelViewVisibility()
     }
     
-    private func clearError() {
-        toggleError(text: "", visible: false)
+    private func clearErrorLabel(label: ErrorLabel) {
+        setErrorLabel(label: label)
     }
     
-    private func toggleError(text: String, visible: Bool = true) {
-        debugPrint("Toggle error: \(visible) \(text)")
-        errorLabel.isHidden = !visible
-        errorLabel.text = text
+    private func clearErrorLabels() {
+        ErrorLabel.allCases.forEach{ self.clearErrorLabel(label: $0) }
+    }
+    
+    private func toggleErrorLabelViewVisibility() {
+        let emptyLabels = errorLabelView.subviews.filter({ label in
+            let label = label as! UILabel
+            if let text = label.text {
+                return text.isEmpty
+            }
+            return true
+        })
+        
+        if emptyLabels.count < 6 {
+            errorView.backgroundColor = .red
+        } else {
+            errorView.backgroundColor = nil
+        }
+        
     }
 }
 
@@ -110,9 +169,9 @@ extension MapViewController: CLLocationManagerDelegate {
             let center = location.coordinate
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             if UserManager.shared.updateLocation(center) == false {
-                toggleError(text: "Failed to send location to server")
+                setErrorLabel(label: .generalErrorLabel, title: "Failed to update location")
             } else {
-                clearError()
+                clearErrorLabel(label: .generalErrorLabel)
             }
             // Center map first time we get a location
             if isFirstTimeInHere {
@@ -126,17 +185,17 @@ extension MapViewController: CLLocationManagerDelegate {
         switch status {
             
         case .notDetermined:
-            clearError()
+            clearErrorLabel(label: .locationManagerErrorLabel)
         case .restricted:
-            toggleError(text: "Location access is restricted on this device.")
+            setErrorLabel(label: .locationManagerErrorLabel, title: "Location access is restricted.")
         case .denied:
-            toggleError(text: "Location access is disabled.")
+            setErrorLabel(label: .locationManagerErrorLabel, title: "Location access is disabled.", description: "Please enable location access in settings")
         case .authorizedAlways:
-            clearError()
+            clearErrorLabel(label: .locationManagerErrorLabel)
         case .authorizedWhenInUse:
-            clearError()
+            clearErrorLabel(label: .locationManagerErrorLabel)
         @unknown default:
-            clearError()
+            setErrorLabel(label: .locationManagerErrorLabel, title: "Unknown error")
         }
     }
 }

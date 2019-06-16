@@ -23,6 +23,7 @@ class MapViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var errorLabel: UILabel!
     
     // MARK: - View Lifecycle
     
@@ -32,6 +33,7 @@ class MapViewController: UIViewController {
         initLocationManager()
         initMapView()
         subscribeToData()
+        toggleError()
     }
     
     // MARK: - Helper Functions
@@ -41,9 +43,10 @@ class MapViewController: UIViewController {
         FirestoreAPI.shared.subscribeToCollection(.users) { error, userLocations in
             
             if let error = error {
-                #warning("Should we notify user about error here")
+                self.toggleError(error)
                 return
             }
+            
             self.updateMapWithUserLocations(userLocations)
         }
     }
@@ -75,7 +78,6 @@ class MapViewController: UIViewController {
             let title = timeAgoSince(user.updatedAt.dateValue())
             annotation.title = title
             
-            debugPrint()
             if let ann = self.annotationMap[user.id] {
                 ann.coordinate = coordinate
                 ann.title = title
@@ -83,6 +85,16 @@ class MapViewController: UIViewController {
                 self.annotationMap[user.id] = annotation
                 self.mapView.addAnnotation(annotation)
             }
+        }
+    }
+    
+    private func toggleError(_ error: Error? = nil) {
+        if let error = error {
+            errorLabel.isHidden = false
+            errorLabel.text = error.localizedDescription
+        } else {
+            errorLabel.isHidden = true
+            errorLabel.text = ""
         }
     }
 }

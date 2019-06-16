@@ -21,17 +21,28 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Cvs-Xy-erS">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GnR-r1-Rl3">
+                                <rect key="frame" x="18" y="64" width="378" height="31.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.24901005993150685" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Flb-8s-vcK" firstAttribute="bottom" secondItem="Cvs-Xy-erS" secondAttribute="bottom" id="2AB-Rd-s3u"/>
                             <constraint firstItem="Flb-8s-vcK" firstAttribute="trailing" secondItem="Cvs-Xy-erS" secondAttribute="trailing" id="5re-fe-wk4"/>
                             <constraint firstItem="Cvs-Xy-erS" firstAttribute="leading" secondItem="Flb-8s-vcK" secondAttribute="leading" id="HIN-K5-Elb"/>
+                            <constraint firstItem="Flb-8s-vcK" firstAttribute="trailing" secondItem="GnR-r1-Rl3" secondAttribute="trailing" constant="18" id="Hz3-Yn-6eV"/>
+                            <constraint firstItem="GnR-r1-Rl3" firstAttribute="top" secondItem="Flb-8s-vcK" secondAttribute="top" constant="20" id="g0l-HV-fXp"/>
+                            <constraint firstItem="GnR-r1-Rl3" firstAttribute="leading" secondItem="Flb-8s-vcK" secondAttribute="leading" constant="18" id="oHv-2p-g8y"/>
                             <constraint firstItem="Cvs-Xy-erS" firstAttribute="top" secondItem="Flb-8s-vcK" secondAttribute="top" id="w8U-7d-8Dz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Flb-8s-vcK"/>
                     </view>
                     <connections>
+                        <outlet property="errorLabel" destination="GnR-r1-Rl3" id="gUZ-ho-6bW"/>
                         <outlet property="mapView" destination="Cvs-Xy-erS" id="Uw4-g1-Xkk"/>
                     </connections>
                 </viewController>

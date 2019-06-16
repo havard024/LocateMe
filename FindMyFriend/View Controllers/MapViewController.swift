@@ -44,6 +44,7 @@ extension MapViewController: CLLocationManagerDelegate {
         if let location = locations.last {
             let center = location.coordinate
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            UserManager.shared.updateLocation(center)
             self.mapView.setRegion(region, animated: true)
         }
     }

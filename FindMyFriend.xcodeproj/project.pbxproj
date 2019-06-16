@@ -12,6 +12,10 @@
 		0488AD9622B69BB500084C22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0488AD9522B69BB500084C22 /* Assets.xcassets */; };
 		0488AD9922B69BB500084C22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0488AD9722B69BB500084C22 /* LaunchScreen.storyboard */; };
 		0488ADA722B6A07000084C22 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488ADA622B6A07000084C22 /* MapViewController.swift */; };
+		0488ADAA22B6A8BE00084C22 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488ADA922B6A8BE00084C22 /* UserManager.swift */; };
+		0488ADAC22B6A98600084C22 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488ADAB22B6A98600084C22 /* UserDefaultsWrapper.swift */; };
+		0488ADAE22B6AC2C00084C22 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0488ADAD22B6AC2C00084C22 /* GoogleService-Info.plist */; };
+		E95EBBA1EA5232CE0376E352 /* Pods_FindMyFriend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F562FFC84E44E4BE1BC3EF9D /* Pods_FindMyFriend.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,12 @@
 		0488AD9822B69BB500084C22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0488AD9A22B69BB500084C22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0488ADA622B6A07000084C22 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		0488ADA922B6A8BE00084C22 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		0488ADAB22B6A98600084C22 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
+		0488ADAD22B6AC2C00084C22 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5C60DEC7EAE0CE7B31E73FF1 /* Pods-FindMyFriend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyFriend.debug.xcconfig"; path = "Target Support Files/Pods-FindMyFriend/Pods-FindMyFriend.debug.xcconfig"; sourceTree = "<group>"; };
+		97637F73B33AC3464542EFAD /* Pods-FindMyFriend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyFriend.release.xcconfig"; path = "Target Support Files/Pods-FindMyFriend/Pods-FindMyFriend.release.xcconfig"; sourceTree = "<group>"; };
+		F562FFC84E44E4BE1BC3EF9D /* Pods_FindMyFriend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindMyFriend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E95EBBA1EA5232CE0376E352 /* Pods_FindMyFriend.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +51,8 @@
 			children = (
 				0488AD8D22B69BB400084C22 /* FindMyFriend */,
 				0488AD8C22B69BB400084C22 /* Products */,
+				24B2661DF96B1123E331693E /* Pods */,
+				F12861F128065ACA765AB0CE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +67,7 @@
 		0488AD8D22B69BB400084C22 /* FindMyFriend */ = {
 			isa = PBXGroup;
 			children = (
+				0488ADA822B6A8A200084C22 /* Model Controllers */,
 				0488AD8E22B69BB400084C22 /* AppDelegate.swift */,
 				0488ADA022B69BC000084C22 /* View Controllers */,
 				0488ADA122B69BC800084C22 /* Storyboards */,
@@ -91,9 +105,36 @@
 		0488ADA322B69BDA00084C22 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0488ADAD22B6AC2C00084C22 /* GoogleService-Info.plist */,
 				0488AD9A22B69BB500084C22 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0488ADA822B6A8A200084C22 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0488ADA922B6A8BE00084C22 /* UserManager.swift */,
+				0488ADAB22B6A98600084C22 /* UserDefaultsWrapper.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		24B2661DF96B1123E331693E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5C60DEC7EAE0CE7B31E73FF1 /* Pods-FindMyFriend.debug.xcconfig */,
+				97637F73B33AC3464542EFAD /* Pods-FindMyFriend.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F12861F128065ACA765AB0CE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F562FFC84E44E4BE1BC3EF9D /* Pods_FindMyFriend.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -103,9 +144,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0488AD9D22B69BB500084C22 /* Build configuration list for PBXNativeTarget "FindMyFriend" */;
 			buildPhases = (
+				03E0C48FC25A3DD330B5396E /* [CP] Check Pods Manifest.lock */,
 				0488AD8722B69BB400084C22 /* Sources */,
 				0488AD8822B69BB400084C22 /* Frameworks */,
 				0488AD8922B69BB400084C22 /* Resources */,
+				F6918908658DB48A10F495A3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -156,17 +199,79 @@
 			files = (
 				0488AD9922B69BB500084C22 /* LaunchScreen.storyboard in Resources */,
 				0488AD9622B69BB500084C22 /* Assets.xcassets in Resources */,
+				0488ADAE22B6AC2C00084C22 /* GoogleService-Info.plist in Resources */,
 				0488AD9422B69BB400084C22 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		03E0C48FC25A3DD330B5396E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FindMyFriend-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6918908658DB48A10F495A3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FindMyFriend/Pods-FindMyFriend-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FindMyFriend/Pods-FindMyFriend-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0488AD8722B69BB400084C22 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0488ADAC22B6A98600084C22 /* UserDefaultsWrapper.swift in Sources */,
+				0488ADAA22B6A8BE00084C22 /* UserManager.swift in Sources */,
 				0488AD8F22B69BB400084C22 /* AppDelegate.swift in Sources */,
 				0488ADA722B6A07000084C22 /* MapViewController.swift in Sources */,
 			);
@@ -312,6 +417,7 @@
 		};
 		0488AD9E22B69BB500084C22 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C60DEC7EAE0CE7B31E73FF1 /* Pods-FindMyFriend.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -330,6 +436,7 @@
 		};
 		0488AD9F22B69BB500084C22 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97637F73B33AC3464542EFAD /* Pods-FindMyFriend.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

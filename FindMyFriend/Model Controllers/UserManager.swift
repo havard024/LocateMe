@@ -35,7 +35,7 @@ class UserManager {
     func updateLocation(_ coordinate: CLLocationCoordinate2D) {
         debugPrint("updateLocation", coordinate)
         let db = Firestore.firestore()
-        let user = User(location: GeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude), id: userRef.documentID)
+        let user = UserLocation(geoPoint: GeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude), id: userRef.documentID)
         let data = try! FirebaseEncoder().encode(user)
         self.userRef.setData(data as! [String : Any])
     }

@@ -12,29 +12,6 @@ import CoreLocation
 import FirebaseFirestore
 import CodableFirebase
 
-extension DocumentReference: DocumentReferenceType {}
-extension GeoPoint: GeoPointType {}
-extension FieldValue: FieldValueType {}
-extension Timestamp: TimestampType {}
-
-struct User: Codable {
-    let id: String
-    let location: GeoPoint
-    let updatedAt: Timestamp
-    
-    init(location: GeoPoint, id: String) {
-        self.location = location
-        self.updatedAt = Timestamp(date: Date())
-        self.id = id
-    }
-}
-
-struct Location: Codable {
-    let latitude: String
-    let longitude: String
-    
-}
-
 class MapViewController: UIViewController {
 
     private let locationManager = CLLocationManager()
@@ -70,21 +47,22 @@ class MapViewController: UIViewController {
             }
             #warning("This will crash if returned data contains data that can't be decoded")
             
-            let locations = documents.map { (doc: DocumentSnapshot) -> User in
+            let locations = documents.map { (doc: DocumentSnapshot) -> UserLocation in
                 var docData = doc.data()
                 docData?["id"] = doc.documentID
-                return try! FirebaseDecoder().decode(User.self, from: docData)
+                return try! FirebaseDecoder().decode(UserLocation.self, from: docData)
             }
             
             debugPrint(locations)
             
             locations.forEach { user in
                 let annotation = MKPointAnnotation()
-                let coordinate = CLLocationCoordinate2D(latitude: user.location.latitude, longitude: user.location.longitude)
+                let coordinate = CLLocationCoordinate2D(latitude: user.geoPoint.latitude, longitude: user.geoPoint.longitude)
                 annotation.coordinate = coordinate
                 let title = timeAgoSince(user.updatedAt.dateValue())
                 annotation.title = title
                 
+                debugPrint()
                 if let ann = self.annotationMap[user.id] {
                     ann.coordinate = coordinate
                     ann.title = title

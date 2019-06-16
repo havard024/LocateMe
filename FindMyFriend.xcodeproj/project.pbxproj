@@ -55,13 +55,45 @@
 			isa = PBXGroup;
 			children = (
 				0488AD8E22B69BB400084C22 /* AppDelegate.swift */,
-				0488AD9022B69BB400084C22 /* ViewController.swift */,
-				0488AD9222B69BB400084C22 /* Main.storyboard */,
-				0488AD9522B69BB500084C22 /* Assets.xcassets */,
-				0488AD9722B69BB500084C22 /* LaunchScreen.storyboard */,
-				0488AD9A22B69BB500084C22 /* Info.plist */,
+				0488ADA022B69BC000084C22 /* View Controllers */,
+				0488ADA122B69BC800084C22 /* Storyboards */,
+				0488ADA222B69BCE00084C22 /* Assets */,
+				0488ADA322B69BDA00084C22 /* Supporting Files */,
 			);
 			path = FindMyFriend;
+			sourceTree = "<group>";
+		};
+		0488ADA022B69BC000084C22 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0488AD9022B69BB400084C22 /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		0488ADA122B69BC800084C22 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				0488AD9722B69BB500084C22 /* LaunchScreen.storyboard */,
+				0488AD9222B69BB400084C22 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		0488ADA222B69BCE00084C22 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				0488AD9522B69BB500084C22 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		0488ADA322B69BDA00084C22 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0488AD9A22B69BB500084C22 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,7 +316,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77M48UU5M7;
-				INFOPLIST_FILE = FindMyFriend/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/FindMyFriend/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +334,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77M48UU5M7;
-				INFOPLIST_FILE = FindMyFriend/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/FindMyFriend/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

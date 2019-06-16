@@ -8,5 +8,6 @@ target 'FindMyFriend' do
   # Pods for FindMyFriend
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'CodableFirebase'
 
 end

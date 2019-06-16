@@ -9,6 +9,7 @@
 // Ref: https://github.com/zemirco/swift-timeago
 import Foundation
 
+#warning("Find an appropriate folder for this file")
 public func timeAgoSince(_ date: Date) -> String {
     
     let calendar = Calendar.current
@@ -16,9 +17,6 @@ public func timeAgoSince(_ date: Date) -> String {
     let unitFlags: NSCalendar.Unit = [.second, .minute, .hour, .day, .weekOfYear, .month, .year]
     let components = (calendar as NSCalendar).components(unitFlags, from: date, to: now, options: [])
     
-    debugPrint("-----------")
-    debugPrint(date)
-    debugPrint(components.minute)
     if let year = components.year, year >= 2 {
         return "\(year) years ago"
     }

@@ -14,31 +14,29 @@ import CodableFirebase
 
 class MapViewController: UIViewController {
 
+    // MARK: - Controller Properties
+    
     private let locationManager = CLLocationManager()
     private var annotationMap: [String: MKPointAnnotation] = [:]
     private var isFirstTimeInHere = true
     
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var mapView: MKMapView!
+    
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        self.locationManager.requestAlwaysAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            self.locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.startUpdatingLocation()
-        } else {
-            #warning("Handle case where app does not have location access or location service is disabled")
-        }
-        
-        mapView.mapType = .standard
-        mapView.isZoomEnabled = true
-        mapView.isScrollEnabled = true
-        mapView.showsUserLocation = true
-        
+       
+        initLocationManager()
+        initMapView()
+        subscribeToData()
+    }
+    
+    // MARK: - Helper Functions
+    
+    private func subscribeToData() {
         #warning("Should we keep a reference to the listener so that we can unregister for events at some point?")
         FirestoreAPI.shared.subscribeToCollection(.users) { error, userLocations in
             
@@ -50,7 +48,26 @@ class MapViewController: UIViewController {
         }
     }
     
-    func updateMapWithUserLocations(_ userLocations: [UserLocation]) {
+    private func initLocationManager() {
+        self.locationManager.requestAlwaysAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            self.locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+        } else {
+            #warning("Handle case where app does not have location access or location service is disabled")
+        }
+    }
+    
+    private func initMapView() {
+        mapView.mapType = .standard
+        mapView.isZoomEnabled = true
+        mapView.isScrollEnabled = true
+        mapView.showsUserLocation = true
+    }
+    
+    private func updateMapWithUserLocations(_ userLocations: [UserLocation]) {
         userLocations.forEach { user in
             let annotation = MKPointAnnotation()
             let coordinate = CLLocationCoordinate2D(latitude: user.geoPoint.latitude, longitude: user.geoPoint.longitude)

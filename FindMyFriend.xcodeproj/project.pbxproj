@@ -18,6 +18,7 @@
 		0488ADB022B6C3FB00084C22 /* TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488ADAF22B6C3FB00084C22 /* TimeAgo.swift */; };
 		0488ADB422B6C5D600084C22 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488ADB322B6C5D600084C22 /* UserLocation.swift */; };
 		0488ADB722B6C84A00084C22 /* CodableFirestore+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488ADB622B6C84A00084C22 /* CodableFirestore+Helpers.swift */; };
+		0488ADBA22B6C8E100084C22 /* FirestoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488ADB922B6C8E100084C22 /* FirestoreAPI.swift */; };
 		E95EBBA1EA5232CE0376E352 /* Pods_FindMyFriend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F562FFC84E44E4BE1BC3EF9D /* Pods_FindMyFriend.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		0488ADAF22B6C3FB00084C22 /* TimeAgo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAgo.swift; sourceTree = "<group>"; };
 		0488ADB322B6C5D600084C22 /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
 		0488ADB622B6C84A00084C22 /* CodableFirestore+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodableFirestore+Helpers.swift"; sourceTree = "<group>"; };
+		0488ADB922B6C8E100084C22 /* FirestoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreAPI.swift; sourceTree = "<group>"; };
 		5C60DEC7EAE0CE7B31E73FF1 /* Pods-FindMyFriend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyFriend.debug.xcconfig"; path = "Target Support Files/Pods-FindMyFriend/Pods-FindMyFriend.debug.xcconfig"; sourceTree = "<group>"; };
 		97637F73B33AC3464542EFAD /* Pods-FindMyFriend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyFriend.release.xcconfig"; path = "Target Support Files/Pods-FindMyFriend/Pods-FindMyFriend.release.xcconfig"; sourceTree = "<group>"; };
 		F562FFC84E44E4BE1BC3EF9D /* Pods_FindMyFriend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindMyFriend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +75,7 @@
 		0488AD8D22B69BB400084C22 /* FindMyFriend */ = {
 			isa = PBXGroup;
 			children = (
+				0488ADB822B6C8D100084C22 /* Network */,
 				0488ADB522B6C83600084C22 /* Extensions */,
 				0488ADB122B6C5BB00084C22 /* Models */,
 				0488ADA822B6A8A200084C22 /* Model Controllers */,
@@ -143,6 +146,14 @@
 				0488ADB622B6C84A00084C22 /* CodableFirestore+Helpers.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0488ADB822B6C8D100084C22 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0488ADB922B6C8E100084C22 /* FirestoreAPI.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		24B2661DF96B1123E331693E /* Pods */ = {
@@ -299,6 +310,7 @@
 			files = (
 				0488ADB722B6C84A00084C22 /* CodableFirestore+Helpers.swift in Sources */,
 				0488ADAC22B6A98600084C22 /* UserDefaultsWrapper.swift in Sources */,
+				0488ADBA22B6C8E100084C22 /* FirestoreAPI.swift in Sources */,
 				0488ADB022B6C3FB00084C22 /* TimeAgo.swift in Sources */,
 				0488ADAA22B6A8BE00084C22 /* UserManager.swift in Sources */,
 				0488ADB422B6C5D600084C22 /* UserLocation.swift in Sources */,

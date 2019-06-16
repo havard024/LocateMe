@@ -39,37 +39,32 @@ class MapViewController: UIViewController {
         mapView.isScrollEnabled = true
         mapView.showsUserLocation = true
         
-        let db = Firestore.firestore()
-        let users = db.collection("users").addSnapshotListener { querySnapshot, error in
-            guard let documents = querySnapshot?.documents else {
-                debugPrint("Error fetching documents: \(error!)")
+        #warning("Should we keep a reference to the listener so that we can unregister for events at some point?")
+        FirestoreAPI.shared.subscribeToCollection(.users) { error, userLocations in
+            
+            if let error = error {
+                #warning("Should we notify user about error here")
                 return
             }
-            #warning("This will crash if returned data contains data that can't be decoded")
+            self.updateMapWithUserLocations(userLocations)
+        }
+    }
+    
+    func updateMapWithUserLocations(_ userLocations: [UserLocation]) {
+        userLocations.forEach { user in
+            let annotation = MKPointAnnotation()
+            let coordinate = CLLocationCoordinate2D(latitude: user.geoPoint.latitude, longitude: user.geoPoint.longitude)
+            annotation.coordinate = coordinate
+            let title = timeAgoSince(user.updatedAt.dateValue())
+            annotation.title = title
             
-            let locations = documents.map { (doc: DocumentSnapshot) -> UserLocation in
-                var docData = doc.data()
-                docData?["id"] = doc.documentID
-                return try! FirebaseDecoder().decode(UserLocation.self, from: docData)
-            }
-            
-            debugPrint(locations)
-            
-            locations.forEach { user in
-                let annotation = MKPointAnnotation()
-                let coordinate = CLLocationCoordinate2D(latitude: user.geoPoint.latitude, longitude: user.geoPoint.longitude)
-                annotation.coordinate = coordinate
-                let title = timeAgoSince(user.updatedAt.dateValue())
-                annotation.title = title
-                
-                debugPrint()
-                if let ann = self.annotationMap[user.id] {
-                    ann.coordinate = coordinate
-                    ann.title = title
-                } else {
-                    self.annotationMap[user.id] = annotation
-                    self.mapView.addAnnotation(annotation)
-                }
+            debugPrint()
+            if let ann = self.annotationMap[user.id] {
+                ann.coordinate = coordinate
+                ann.title = title
+            } else {
+                self.annotationMap[user.id] = annotation
+                self.mapView.addAnnotation(annotation)
             }
         }
     }

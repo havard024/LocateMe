@@ -10,25 +10,21 @@ import Foundation
 import FirebaseFirestore
 import MapKit
 import CodableFirebase
+import FirebaseAuth
 
-#warning("Consider using uid from firebase user using anonymous login")
 class UserManager {
     static let shared = UserManager()
     
-    private let userID: String!
-    
-    init() {
-        if UserDefaultsWrapper.userID == nil {
-            UserDefaultsWrapper.userID = FirestoreAPI.shared.getDocumentID("users")
+    var user: User? {
+        get {
+            return Auth.auth().currentUser
         }
-        
-        self.userID = UserDefaultsWrapper.userID
     }
     
     #warning("If users node is going to contain private data, might need to move public location to a different node")
     func updateLocation(_ coordinate: CLLocationCoordinate2D) -> Bool {
         // debugPrint("updateLocation", coordinate)
-        let user = UserLocation(geoPoint: GeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude), id: userID)
+        let user = UserLocation(geoPoint: GeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude), id: self.user!.uid)
         return FirestoreAPI.shared.setUserData(user)
     }
 }

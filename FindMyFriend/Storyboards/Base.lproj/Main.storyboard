@@ -74,11 +74,38 @@
                     </view>
                     <connections>
                         <segue destination="P91-m1-nwd" kind="show" identifier="map" id="44a-yS-ZXW"/>
+                        <segue destination="AHR-gM-LOF" kind="show" identifier="login" id="5Rs-8a-Sg3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apC-mK-aEV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="586" y="764"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="SlZ-hC-RkQ">
+            <objects>
+                <viewController id="AHR-gM-LOF" customClass="LoginViewController" customModule="FindMyFriend" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WOy-RL-cew">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xic-Eu-CY1">
+                                <rect key="frame" x="171" y="425" width="72" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginTapped:" destination="AHR-gM-LOF" eventType="touchUpInside" id="huR-sx-HcJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="oDH-KT-CWK"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hbw-XL-A5Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1410" y="763"/>
         </scene>
     </scenes>
 </document>

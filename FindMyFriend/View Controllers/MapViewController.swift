@@ -99,8 +99,13 @@ class MapViewController: UIViewController {
             annotation.title = title
             
             if let ann = self.annotationMap[user.id] {
-                ann.coordinate = coordinate
+                UIView.animate(withDuration: 0.25) {
+                    ann.coordinate.latitude = coordinate.latitude
+                    ann.coordinate.longitude = coordinate.longitude
+                }
+                
                 ann.title = title
+                
             } else {
                 self.annotationMap[user.id] = annotation
                 self.mapView.addAnnotation(annotation)

@@ -159,8 +159,10 @@ class MapViewController: UIViewController {
         
         if emptyLabels.count < 6 {
             errorView.backgroundColor = .red
+            errorView.isHidden = false
         } else {
             errorView.backgroundColor = nil
+            errorView.isHidden = true
         }
         
     }

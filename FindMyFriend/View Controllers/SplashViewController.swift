@@ -18,15 +18,13 @@ class SplashViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if Auth.auth().currentUser != nil {
-            self.performSegue(withIdentifier: "map", sender: nil)
-        } else {
-            Auth.auth().signInAnonymously() { authResult, error in
-                if error != nil {
-                    fatalError("Failed to sign in: \(error)")
-                }
-                
-                self.performSegue(.map)
+        UserManager.shared.logIn { error, destination in
+            if error != nil {
+                let alert = UIAlertController(title: "Error", message: "Failed to log in, try again later.", preferredStyle: .alert)
+                alert.addAction(.okAction(title: "ok"))
+                self.present(alert, animated: true)
+            } else {
+                self.performSegue(destination!)
             }
         }
     }

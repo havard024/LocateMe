@@ -18,8 +18,14 @@ class LoginViewController: UIViewController {
     
 
     @IBAction func loginTapped(_ sender: Any) {
-        Auth.auth().signInAnonymously() { user, error in
-            
+        UserManager.shared.logIn { error, destination in
+            if error != nil {
+                let alert = UIAlertController(title: "Error", message: "Failed to log in, try again later.", preferredStyle: .alert)
+                alert.addAction(.okAction(title: "ok"))
+                self.present(alert, animated: true)
+            } else {
+                self.performSegue(destination!)
+            }
         }
     }
     /*

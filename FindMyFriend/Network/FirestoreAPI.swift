@@ -41,7 +41,13 @@ class FirestoreAPI {
     }
     
     init() {
+        
+        let settings = FirestoreSettings()
+        settings.isPersistenceEnabled = true
+        
         let db = Firestore.firestore()
+        db.settings = settings
+
         self.users = db.collection("users")
         self.db = db
     }

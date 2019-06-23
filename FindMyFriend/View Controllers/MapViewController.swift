@@ -108,6 +108,7 @@ class MapViewController: UIViewController {
         if CLLocationManager.locationServicesEnabled() {
             self.locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.allowsBackgroundLocationUpdates = true
             locationManager.startUpdatingLocation()
         } else {
             setErrorLabel(label: .locationManagerErrorLabel, title: "Location service is disabled.", description: "Please turn on location service in settings")

@@ -11,5 +11,6 @@ target 'FindMyFriend' do
   pod 'CodableFirebase'
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
+  pod 'FontAwesome.swift'
 
 end

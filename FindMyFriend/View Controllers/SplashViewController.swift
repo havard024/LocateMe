@@ -26,7 +26,7 @@ class SplashViewController: UIViewController {
                     fatalError("Failed to sign in: \(error)")
                 }
                 
-                self.performSegue(withIdentifier: "map", sender: nil)
+                self.performSegue(.map)
             }
         }
     }

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F479C524FA669C217848ACF089AA1FB5"
-               BuildableName = "Pods_FindMyFriend.framework"
-               BlueprintName = "Pods-FindMyFriend"
+               BlueprintIdentifier = "ADD9F3DD47C12F0136E3ED7EE7141BA4"
+               BuildableName = "FontAwesome_swift.framework"
+               BlueprintName = "FontAwesome.swift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F479C524FA669C217848ACF089AA1FB5"
-            BuildableName = "Pods_FindMyFriend.framework"
-            BlueprintName = "Pods-FindMyFriend"
+            BlueprintIdentifier = "ADD9F3DD47C12F0136E3ED7EE7141BA4"
+            BuildableName = "FontAwesome_swift.framework"
+            BlueprintName = "FontAwesome.swift"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

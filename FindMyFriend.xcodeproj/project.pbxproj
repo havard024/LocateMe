@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042DD0A222B84D8600AE5899 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 042DD0A122B84D8600AE5899 /* Podfile */; };
 		0488AD8F22B69BB400084C22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488AD8E22B69BB400084C22 /* AppDelegate.swift */; };
 		0488AD9422B69BB400084C22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0488AD9222B69BB400084C22 /* Main.storyboard */; };
 		0488AD9622B69BB500084C22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0488AD9522B69BB500084C22 /* Assets.xcassets */; };
@@ -21,10 +22,14 @@
 		0488ADBA22B6C8E100084C22 /* FirestoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488ADB922B6C8E100084C22 /* FirestoreAPI.swift */; };
 		0488ADBE22B6E0F900084C22 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488ADBD22B6E0F900084C22 /* SplashViewController.swift */; };
 		0488ADC022B6E51B00084C22 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488ADBF22B6E51B00084C22 /* LoginViewController.swift */; };
+		048A25E222BF5EBD00298C97 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A25E122BF5EBD00298C97 /* SettingsViewController.swift */; };
+		048A25E422BF5F1700298C97 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A25E322BF5F1700298C97 /* SegueIdentifier.swift */; };
+		048A25E622BF5F6A00298C97 /* UIViewController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A25E522BF5F6A00298C97 /* UIViewController+Helpers.swift */; };
 		E95EBBA1EA5232CE0376E352 /* Pods_FindMyFriend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F562FFC84E44E4BE1BC3EF9D /* Pods_FindMyFriend.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042DD0A122B84D8600AE5899 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		0488AD8B22B69BB400084C22 /* FindMyFriend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyFriend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0488AD8E22B69BB400084C22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0488AD9322B69BB400084C22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -41,6 +46,9 @@
 		0488ADB922B6C8E100084C22 /* FirestoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreAPI.swift; sourceTree = "<group>"; };
 		0488ADBD22B6E0F900084C22 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		0488ADBF22B6E51B00084C22 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		048A25E122BF5EBD00298C97 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		048A25E322BF5F1700298C97 /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
+		048A25E522BF5F6A00298C97 /* UIViewController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Helpers.swift"; sourceTree = "<group>"; };
 		5C60DEC7EAE0CE7B31E73FF1 /* Pods-FindMyFriend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyFriend.debug.xcconfig"; path = "Target Support Files/Pods-FindMyFriend/Pods-FindMyFriend.debug.xcconfig"; sourceTree = "<group>"; };
 		97637F73B33AC3464542EFAD /* Pods-FindMyFriend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyFriend.release.xcconfig"; path = "Target Support Files/Pods-FindMyFriend/Pods-FindMyFriend.release.xcconfig"; sourceTree = "<group>"; };
 		F562FFC84E44E4BE1BC3EF9D /* Pods_FindMyFriend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindMyFriend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +69,7 @@
 		0488AD8222B69BB400084C22 = {
 			isa = PBXGroup;
 			children = (
+				042DD0A122B84D8600AE5899 /* Podfile */,
 				0488AD8D22B69BB400084C22 /* FindMyFriend */,
 				0488AD8C22B69BB400084C22 /* Products */,
 				24B2661DF96B1123E331693E /* Pods */,
@@ -99,6 +108,7 @@
 				0488ADA622B6A07000084C22 /* MapViewController.swift */,
 				0488ADBD22B6E0F900084C22 /* SplashViewController.swift */,
 				0488ADBF22B6E51B00084C22 /* LoginViewController.swift */,
+				048A25E122BF5EBD00298C97 /* SettingsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -142,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				0488ADB322B6C5D600084C22 /* UserLocation.swift */,
+				048A25E322BF5F1700298C97 /* SegueIdentifier.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -150,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				0488ADB622B6C84A00084C22 /* CodableFirestore+Helpers.swift */,
+				048A25E522BF5F6A00298C97 /* UIViewController+Helpers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -239,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				042DD0A222B84D8600AE5899 /* Podfile in Resources */,
 				0488AD9922B69BB500084C22 /* LaunchScreen.storyboard in Resources */,
 				0488AD9622B69BB500084C22 /* Assets.xcassets in Resources */,
 				0488ADAE22B6AC2C00084C22 /* GoogleService-Info.plist in Resources */,
@@ -282,6 +295,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-FindMyFriend/Pods-FindMyFriend-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
+				"${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
@@ -296,6 +310,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesome_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
@@ -318,7 +333,9 @@
 			files = (
 				0488ADB722B6C84A00084C22 /* CodableFirestore+Helpers.swift in Sources */,
 				0488ADAC22B6A98600084C22 /* UserDefaultsWrapper.swift in Sources */,
+				048A25E222BF5EBD00298C97 /* SettingsViewController.swift in Sources */,
 				0488ADBA22B6C8E100084C22 /* FirestoreAPI.swift in Sources */,
+				048A25E422BF5F1700298C97 /* SegueIdentifier.swift in Sources */,
 				0488ADBE22B6E0F900084C22 /* SplashViewController.swift in Sources */,
 				0488ADB022B6C3FB00084C22 /* TimeAgo.swift in Sources */,
 				0488ADAA22B6A8BE00084C22 /* UserManager.swift in Sources */,
@@ -326,6 +343,7 @@
 				0488AD8F22B69BB400084C22 /* AppDelegate.swift in Sources */,
 				0488ADC022B6E51B00084C22 /* LoginViewController.swift in Sources */,
 				0488ADA722B6A07000084C22 /* MapViewController.swift in Sources */,
+				048A25E622BF5F6A00298C97 /* UIViewController+Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

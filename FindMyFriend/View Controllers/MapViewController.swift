@@ -11,6 +11,7 @@ import MapKit
 import CoreLocation
 import FirebaseFirestore
 import CodableFirebase
+import FontAwesome_swift
 
 class MapViewController: UIViewController {
 
@@ -19,6 +20,7 @@ class MapViewController: UIViewController {
     private let locationManager = CLLocationManager()
     private var annotationMap: [String: MKPointAnnotation] = [:]
     private var isFirstTimeInHere = true
+    private var latestRegion: MKCoordinateRegion?
     
     private enum ErrorLabel: CaseIterable {
         case locationManagerErrorLabel
@@ -39,6 +41,9 @@ class MapViewController: UIViewController {
     @IBOutlet weak var genericErrorTitleLabel: UILabel!
     @IBOutlet weak var genericErrorDescriptionLabel: UILabel!
     
+    @IBOutlet weak var infoButton: UIButton!
+    @IBOutlet weak var centerButton: UIButton!
+    
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
@@ -50,11 +55,28 @@ class MapViewController: UIViewController {
         initMapView()
         subscribeToData()
         
+        infoButton.setTitle(String.fontAwesomeIcon(name: .infoCircle), for: .normal)
+        infoButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 20, style: .solid)
+        
+        centerButton.setTitle(String.fontAwesomeIcon(name: .locationArrow), for: .normal)
+        centerButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 20, style: .solid)
         /*
          self.setErrorLabel(label: .generalErrorLabel, title: "General Error label", description: "Some kinda description which should be a decent length to test it properly")
          self.setErrorLabel(label: .locationManagerErrorLabel, title: "LocationManager Error label", description: "Some kinda description which should be a decent length to test it properly")
          self.setErrorLabel(label: .userLocationErrorLabel, title: "UserLocation Error label", description: "Some kinda description which should be a decent length to test it properly")
             */
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction func centerTapped(_ sender: Any) {
+        if let latestRegion = latestRegion {
+            self.mapView.setRegion(latestRegion, animated: true)
+        }
+    }
+    
+    @IBAction func infoTapped(_ sender: Any) {
+        performSegue(.settings)
     }
     
     // MARK: - Helper Functions
@@ -180,6 +202,7 @@ extension MapViewController: CLLocationManagerDelegate {
             } else {
                 clearErrorLabel(label: .generalErrorLabel)
             }
+            self.latestRegion = region
             // Center map first time we get a location
             if isFirstTimeInHere {
                 self.mapView.setRegion(region, animated: true)

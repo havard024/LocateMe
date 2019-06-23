@@ -149,16 +149,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mto-qz-ynL">
-                                <rect key="frame" x="183" y="118" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Logout"/>
-                                <connections>
-                                    <action selector="logoutTapped:" destination="FeF-Tl-P5b" eventType="touchUpInside" id="dXI-ep-LII"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mhg-kq-Zrh">
+                                <rect key="frame" x="0.0" y="88" width="414" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mto-qz-ynL">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                                        <state key="normal" title="Logout"/>
+                                        <connections>
+                                            <action selector="logoutTapped:" destination="FeF-Tl-P5b" eventType="touchUpInside" id="dXI-ep-LII"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mhg-kq-Zrh" firstAttribute="leading" secondItem="aVg-ix-DXy" secondAttribute="leading" id="8O4-02-Sze"/>
+                            <constraint firstItem="aVg-ix-DXy" firstAttribute="trailing" secondItem="mhg-kq-Zrh" secondAttribute="trailing" id="dDR-ue-3qW"/>
+                            <constraint firstItem="mhg-kq-Zrh" firstAttribute="top" secondItem="aVg-ix-DXy" secondAttribute="top" id="pux-qE-9ft"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="aVg-ix-DXy"/>
                     </view>
                     <connections>
@@ -253,6 +262,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="44a-yS-ZXW"/>
-        <segue reference="5Rs-8a-Sg3"/>
+        <segue reference="rmz-F3-r8j"/>
     </inferredMetricsTieBreakers>
 </document>

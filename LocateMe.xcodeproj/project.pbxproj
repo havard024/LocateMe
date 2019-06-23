@@ -503,7 +503,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77M48UU5M7;
-				INFOPLIST_FILE = "$(SRCROOT)/FindMyFriend/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/LocateMe/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -522,7 +522,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77M48UU5M7;
-				INFOPLIST_FILE = "$(SRCROOT)/FindMyFriend/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/LocateMe/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

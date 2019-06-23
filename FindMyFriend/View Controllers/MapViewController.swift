@@ -60,6 +60,11 @@ class MapViewController: UIViewController {
         
         centerButton.setTitle(String.fontAwesomeIcon(name: .locationArrow), for: .normal)
         centerButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 20, style: .solid)
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+
+
         /*
          self.setErrorLabel(label: .generalErrorLabel, title: "General Error label", description: "Some kinda description which should be a decent length to test it properly")
          self.setErrorLabel(label: .locationManagerErrorLabel, title: "LocationManager Error label", description: "Some kinda description which should be a decent length to test it properly")
@@ -198,6 +203,34 @@ class MapViewController: UIViewController {
         }
         
     }
+    
+    private func handleLocationAuthorizationStatus(status: CLAuthorizationStatus) {
+        switch status {
+            
+        case .notDetermined:
+            clearErrorLabel(label: .locationManagerErrorLabel)
+        case .restricted:
+            setErrorLabel(label: .locationManagerErrorLabel, title: "Location access is restricted.")
+        case .denied:
+            setErrorLabel(label: .locationManagerErrorLabel, title: "Location access is disabled.", description: "Please enable location access in settings")
+        case .authorizedAlways:
+            clearErrorLabel(label: .locationManagerErrorLabel)
+        case .authorizedWhenInUse:
+            clearErrorLabel(label: .locationManagerErrorLabel)
+        @unknown default:
+            setErrorLabel(label: .locationManagerErrorLabel, title: "Unknown error")
+        }
+    }
+    
+    @objc private func appMovedToForeground() {
+        if CLLocationManager.locationServicesEnabled() {
+            setErrorLabel(label: .locationManagerErrorLabel)
+            let status = CLLocationManager.authorizationStatus()
+            handleLocationAuthorizationStatus(status: status)
+        } else {
+            setErrorLabel(label: .locationManagerErrorLabel, title: "Location service is disabled.", description: "Please turn on location service in settings")
+        }
+    }
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -222,20 +255,6 @@ extension MapViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        switch status {
-            
-        case .notDetermined:
-            clearErrorLabel(label: .locationManagerErrorLabel)
-        case .restricted:
-            setErrorLabel(label: .locationManagerErrorLabel, title: "Location access is restricted.")
-        case .denied:
-            setErrorLabel(label: .locationManagerErrorLabel, title: "Location access is disabled.", description: "Please enable location access in settings")
-        case .authorizedAlways:
-            clearErrorLabel(label: .locationManagerErrorLabel)
-        case .authorizedWhenInUse:
-            clearErrorLabel(label: .locationManagerErrorLabel)
-        @unknown default:
-            setErrorLabel(label: .locationManagerErrorLabel, title: "Unknown error")
-        }
+        self.handleLocationAuthorizationStatus(status: status)
     }
 }

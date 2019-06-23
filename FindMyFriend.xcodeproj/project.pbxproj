@@ -51,6 +51,7 @@
 		048A25E322BF5F1700298C97 /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
 		048A25E522BF5F6A00298C97 /* UIViewController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Helpers.swift"; sourceTree = "<group>"; };
 		048A25EF22BF63A000298C97 /* UIAlertAction+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Helpers.swift"; sourceTree = "<group>"; };
+		048A25F122BF6EEE00298C97 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5C60DEC7EAE0CE7B31E73FF1 /* Pods-FindMyFriend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyFriend.debug.xcconfig"; path = "Target Support Files/Pods-FindMyFriend/Pods-FindMyFriend.debug.xcconfig"; sourceTree = "<group>"; };
 		97637F73B33AC3464542EFAD /* Pods-FindMyFriend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyFriend.release.xcconfig"; path = "Target Support Files/Pods-FindMyFriend/Pods-FindMyFriend.release.xcconfig"; sourceTree = "<group>"; };
 		F562FFC84E44E4BE1BC3EF9D /* Pods_FindMyFriend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindMyFriend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +72,7 @@
 		0488AD8222B69BB400084C22 = {
 			isa = PBXGroup;
 			children = (
+				048A25F122BF6EEE00298C97 /* README.md */,
 				042DD0A122B84D8600AE5899 /* Podfile */,
 				0488AD8D22B69BB400084C22 /* FindMyFriend */,
 				0488AD8C22B69BB400084C22 /* Products */,

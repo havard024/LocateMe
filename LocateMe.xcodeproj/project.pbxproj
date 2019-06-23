@@ -31,7 +31,7 @@
 
 /* Begin PBXFileReference section */
 		042DD0A122B84D8600AE5899 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		0488AD8B22B69BB400084C22 /* FindMyFriend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyFriend.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0488AD8B22B69BB400084C22 /* LocateMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocateMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0488AD8E22B69BB400084C22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0488AD9322B69BB400084C22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0488AD9522B69BB500084C22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 			children = (
 				048A25F122BF6EEE00298C97 /* README.md */,
 				042DD0A122B84D8600AE5899 /* Podfile */,
-				0488AD8D22B69BB400084C22 /* FindMyFriend */,
+				0488AD8D22B69BB400084C22 /* LocateMe */,
 				0488AD8C22B69BB400084C22 /* Products */,
 				24B2661DF96B1123E331693E /* Pods */,
 				F12861F128065ACA765AB0CE /* Frameworks */,
@@ -84,12 +84,12 @@
 		0488AD8C22B69BB400084C22 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0488AD8B22B69BB400084C22 /* FindMyFriend.app */,
+				0488AD8B22B69BB400084C22 /* LocateMe.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0488AD8D22B69BB400084C22 /* FindMyFriend */ = {
+		0488AD8D22B69BB400084C22 /* LocateMe */ = {
 			isa = PBXGroup;
 			children = (
 				0488ADB822B6C8D100084C22 /* Network */,
@@ -103,7 +103,7 @@
 				0488ADA322B69BDA00084C22 /* Supporting Files */,
 				0488ADAF22B6C3FB00084C22 /* TimeAgo.swift */,
 			);
-			path = FindMyFriend;
+			path = LocateMe;
 			sourceTree = "<group>";
 		};
 		0488ADA022B69BC000084C22 /* View Controllers */ = {
@@ -199,9 +199,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0488AD8A22B69BB400084C22 /* FindMyFriend */ = {
+		0488AD8A22B69BB400084C22 /* LocateMe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0488AD9D22B69BB500084C22 /* Build configuration list for PBXNativeTarget "FindMyFriend" */;
+			buildConfigurationList = 0488AD9D22B69BB500084C22 /* Build configuration list for PBXNativeTarget "LocateMe" */;
 			buildPhases = (
 				03E0C48FC25A3DD330B5396E /* [CP] Check Pods Manifest.lock */,
 				0488AD8722B69BB400084C22 /* Sources */,
@@ -213,9 +213,9 @@
 			);
 			dependencies = (
 			);
-			name = FindMyFriend;
+			name = LocateMe;
 			productName = FindMyFriend;
-			productReference = 0488AD8B22B69BB400084C22 /* FindMyFriend.app */;
+			productReference = 0488AD8B22B69BB400084C22 /* LocateMe.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -238,7 +238,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0488AD8622B69BB400084C22 /* Build configuration list for PBXProject "FindMyFriend" */;
+			buildConfigurationList = 0488AD8622B69BB400084C22 /* Build configuration list for PBXProject "LocateMe" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -251,7 +251,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0488AD8A22B69BB400084C22 /* FindMyFriend */,
+				0488AD8A22B69BB400084C22 /* LocateMe */,
 			);
 		};
 /* End PBXProject section */
@@ -537,7 +537,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0488AD8622B69BB400084C22 /* Build configuration list for PBXProject "FindMyFriend" */ = {
+		0488AD8622B69BB400084C22 /* Build configuration list for PBXProject "LocateMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0488AD9B22B69BB500084C22 /* Debug */,
@@ -546,7 +546,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0488AD9D22B69BB500084C22 /* Build configuration list for PBXNativeTarget "FindMyFriend" */ = {
+		0488AD9D22B69BB500084C22 /* Build configuration list for PBXNativeTarget "LocateMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0488AD9E22B69BB500084C22 /* Debug */,

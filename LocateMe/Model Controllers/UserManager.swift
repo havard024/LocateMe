@@ -23,7 +23,7 @@ class UserManager {
     
     #warning("If users node is going to contain private data, might need to move public location to a different node")
     func updateLocation(_ coordinate: CLLocationCoordinate2D) -> Bool {
-        // debugPrint("updateLocation", coordinate)
+        debugPrint("updateLocation", coordinate, user)
         if let user = self.user {
             let userData = UserLocation(geoPoint: GeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude), id: user.uid)
             return FirestoreAPI.shared.setUserData(userData)

@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="l5r-CG-nCS">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9W5-tU-JM7">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="198.5"/>
@@ -76,12 +76,12 @@
                                         </constraints>
                                     </view>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Cvs-Xy-erS">
-                                        <rect key="frame" x="0.0" y="198.5" width="414" height="619.5"/>
+                                        <rect key="frame" x="0.0" y="198.5" width="414" height="575.5"/>
                                     </mapView>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FmL-dT-7Fv">
-                                <rect key="frame" x="376" y="262.5" width="30" height="60"/>
+                                <rect key="frame" x="376" y="306.5" width="30" height="60"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QIk-Z0-mu1">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="60"/>
@@ -139,7 +139,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L0c-7N-qIV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1495.6521739130435" y="99.776785714285708"/>
+            <point key="canvasLocation" x="1916" y="125"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="7t4-IR-KIT">
@@ -167,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ICv-f1-cZ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2399" y="103"/>
+            <point key="canvasLocation" x="1916" y="844"/>
         </scene>
         <!--Splash View Controller-->
         <scene sceneID="1Uv-AR-pmR">
@@ -198,7 +198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apC-mK-aEV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="586" y="764"/>
+            <point key="canvasLocation" x="-507" y="125"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="SlZ-hC-RkQ">
@@ -225,12 +225,12 @@
                         <viewLayoutGuide key="safeArea" id="oDH-KT-CWK"/>
                     </view>
                     <connections>
-                        <segue destination="P91-m1-nwd" kind="show" identifier="map" id="JU0-57-frM"/>
+                        <segue destination="VfQ-3K-U0e" kind="show" identifier="map" id="ykW-ob-1Ws"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hbw-XL-A5Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1410" y="763"/>
+            <point key="canvasLocation" x="248" y="844"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="x4i-7g-rxM">
@@ -248,11 +248,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="37A-yz-P9O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="585.50724637681162" y="99.776785714285708"/>
+            <point key="canvasLocation" x="1025" y="125"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rmz-F3-r8j"/>
-        <segue reference="JU0-57-frM"/>
+        <segue reference="44a-yS-ZXW"/>
+        <segue reference="5Rs-8a-Sg3"/>
     </inferredMetricsTieBreakers>
 </document>

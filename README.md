@@ -22,4 +22,8 @@ Open the projects `xcworkspace` file and run the project.
 
 All pods are contained in the vcs, so you don't need to run `pod install`
 
+# License
+
+The contents of this repository are covered under the (MIT License)[LICENSE.md].
+
 

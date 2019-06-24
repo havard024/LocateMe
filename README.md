@@ -11,6 +11,7 @@ There are no extra steps required to get started, since all the pods are include
 ```
 cocoapods: 1.6.1
 xcode: 10.2.1
+swift: 5
 ```
 
 ## App Usage 
